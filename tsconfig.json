@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    /* Lenguaje y compatibilidad */
+    "target": "ES2020",                     
+    "module": "commonjs",                   
+    "moduleResolution": "node",             
+
+    /* Salida de compilación */
+    "outDir": "./dist",                     
+    "rootDir": "./src",                     
+
+    /* Seguridad del tipado */
+    "strict": true,                         
+    "noImplicitAny": true,                  
+    "strictNullChecks": true,               
+
+    /* Compatibilidad con librerías */
+    "esModuleInterop": true,                
+    "allowSyntheticDefaultImports": true,   
+    "resolveJsonModule": true,              
+    "skipLibCheck": true,                   
+
+    /* Soporte para Node.js moderno */
+    "types": ["node"],                      
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "tests"]
+}
