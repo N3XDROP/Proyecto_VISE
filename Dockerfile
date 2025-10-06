@@ -28,8 +28,8 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 
 # Puerto expuesto
-EXPOSE 3000
-# EXPOSE 443
+# EXPOSE 3000
+EXPOSE 443
 
 # Comando de inicio
 CMD ["node", "dist/index.js"]
