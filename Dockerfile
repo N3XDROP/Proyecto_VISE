@@ -1,35 +1,35 @@
-# ---------- Etapa 1: Compilación ----------
-FROM node:20-alpine AS builder
+# Etapa 1: Compilación
+FROM node:18-alpine AS builder
 
-# Directorio de trabajo dentro del contenedor
+# Directorio de trabajo
 WORKDIR /app
 
-# Copiar dependencias (optimiza caché)
+# Copiar dependencias
 COPY package*.json ./
 
-# Instalar dependencias limpias
-RUN npm ci
+# Instalar dependencias
+RUN npm install
 
-# Copiar el resto del código fuente
+# Copiar el resto del código
 COPY . .
 
-# Compilar TypeScript a /dist
+# Compilar a dist/
 RUN npm run build
 
-# ---------- Etapa 2: Imagen final ----------
-FROM node:20-alpine
 
-# Directorio de trabajo final
+# Etapa 2: Imagen final ligera
+FROM node:18-alpine
+
 WORKDIR /app
 
-# Copiar solo lo necesario
+# Copiar solo lo necesario de la etapa anterior
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 
-# Azure inyecta automáticamente el puerto como variable de entorno
-# No fijes PORT manualmente, solo expón el puerto estándar
-EXPOSE 3000
+# Puerto expuesto
+# EXPOSE 3000
+EXPOSE 443
 
-# Comando para ejecutar la aplicación
+# Comando de inicio
 CMD ["node", "dist/index.js"]
