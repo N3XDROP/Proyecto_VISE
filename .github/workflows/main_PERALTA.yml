@@ -20,7 +20,7 @@ on:
         required: true
 
 env:
-  IMAGE_URL: ${{ secrets.ACR_NAME_PERALTA }}.azurecr.io/${{ github.event.inputs.IMAGE_REPOSITORY }}:${{ github.event.inputs.IMAGE_TAG }}
+  IMAGE_URL: ${{ secrets.ACR_NAME_TORRES }}.azurecr.io/${{ github.event.inputs.IMAGE_REPOSITORY }}:${{ github.event.inputs.IMAGE_TAG }}
 
 jobs:
   build-and-push-image:
@@ -34,7 +34,7 @@ jobs:
       - name: Docker Login
         uses: azure/docker-login@v1
         with:
-          login-server: ${{ secrets.ACR_NAME_TORRES }}.azurecr.io
+          login-server: ${{ secrets.ACR_NAME_PERALTA }}.azurecr.io
           username: ${{ secrets.ACR_NAME_PERALTA }}
           password: ${{ secrets.ACR_PASSWORD_PERALTA }}
 
