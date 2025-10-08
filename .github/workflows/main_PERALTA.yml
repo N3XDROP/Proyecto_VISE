@@ -34,7 +34,7 @@ jobs:
       - name: Docker Login
         uses: azure/docker-login@v1
         with:
-          login-server: ${{ secrets.ACR_NAME_PERALTA }}.azurecr.io
+          login-server: ${{ secrets.ACR_NAME_TORRES }}.azurecr.io
           username: ${{ secrets.ACR_NAME_PERALTA }}
           password: ${{ secrets.ACR_PASSWORD_PERALTA }}
 
