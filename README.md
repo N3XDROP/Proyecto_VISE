@@ -17,5 +17,14 @@ npm i <!-- (Instalar todas las dependencias) -->
 docker build -t vise-api .
 docker run -p 4000:3000 vise-api
 
+## OpenTelemetry (CMD)
+´´´
+npm install @opentelemetry/sdk-node @opentelemetry/api @opentelemetry/auto-instrumentations-node @opentelemetry/sdk-metrics @opentelemetry/sdk-trace-node
+´´´
+Luego poner:
+´´´
+npx tsx --import ./instrumentation.ts src/app.ts
+´´´
+
 ## url pruebas (Docker):
 http://localhost:4000/..
