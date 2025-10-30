@@ -1,4 +1,4 @@
-name: Azure Continuous Delivery PERTALTA
+name: Azure Continuous Delivery PERALTA
 
 on:
   workflow_dispatch:
